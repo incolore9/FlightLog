@@ -4,12 +4,16 @@ import Sidebar from "@/components/common/Sidebar";
 import StatusPanel from "@/components/map/StatusPanel";
 import AttitudePanel from "@/components/map/AttitudePanel";
 import FlightProgressBar from "@/components/map/FlightProgressBar";
-import MapView from "@/components/map/MapView";
 import ControlPanel from "@/components/map/ControlPanel";
 import { useState } from "react";
 import useSidebarStore from "@/store/useSidebar";
 import useResizePanelControl from "@/hooks/useResizePanelControl";
 import SelectFlightLog from "@/components/map/SelectFlightLog";
+import dynamic from "next/dynamic";
+
+const MapView = dynamic(() => import("@/components/map/MapView"), {
+  ssr: false,
+});
 
 export default function MapPage() {
   const { isSidebarOpen } = useSidebarStore();

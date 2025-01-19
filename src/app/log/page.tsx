@@ -1,6 +1,17 @@
+"use client";
+
 import Sidebar from "@/components/common/Sidebar";
-import MultipleAxesCharts from "@/components/log/charts/MultipleAxesCharts";
-import SynchronisedCharts from "@/components/log/charts/SynchronisedCharts";
+import dynamic from "next/dynamic";
+
+const MultipleAxesCharts = dynamic(
+  () => import("@/components/log/charts/MultipleAxesCharts"),
+  { ssr: false },
+);
+
+const SynchronisedCharts = dynamic(
+  () => import("@/components/log/charts/SynchronisedCharts"),
+  { ssr: false },
+);
 
 export default function LogPage() {
   return (
